@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação Selenium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background: blue;
+            color: white;
+            cursor: pointer;
+        }
+        .status {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="formulario" id="loginForm">
+            <div class="input-group">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" required>
+                <button type="button" class="check-btn" onclick="checkInput('username')">✔</button>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+                <button type="button" class="check-btn" onclick="checkInput('password')">✔</button>
+            </div>
+            
+            <button type="button" id="playButton" onclick="startTest()">Play</button>
+            <p class="status" id="statusMessage"></p>
+        </form>
+    </div>
+
+    <script>
+        function checkInput(inputId) {
+            let input = document.getElementById(inputId);
+            if (input.value.trim() !== "") {
+                alert(`Campo ${inputId} validado com sucesso!`);
+            } else {
+                alert(`Campo ${inputId} está vazio!`);
+            }
+        }
+
+        function startTest() {
+            let statusMessage = document.getElementById('statusMessage');
+           
+
+
+            setTimeout(() => {
+                statusMessage.textContent = "Botão não funciona, emita um relatório e informe o setor de dev";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
